@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class BoardTest {
+class BoardTest {
     private final Board board = new Board(5, 5);
 
     @Test
@@ -58,7 +58,7 @@ public class BoardTest {
         assertEquals(1, neighborsCount);
     }
 
-    public static Stream<Arguments> createEqualCases() {
+    public static Stream<Arguments> createEqualityTestCases() {
 
         Board b1 = new Board(3, 3);
         Board b2 = new Board(2, 3);
@@ -84,8 +84,8 @@ public class BoardTest {
     }
 
     @ParameterizedTest
-    @MethodSource("createEqualCases")
-    void itShouldEqual(Board b1, Board b2, boolean expected) {
+    @MethodSource("createEqualityTestCases")
+    void itShouldControlEqual(Board b1, Board b2, boolean expected) {
         assertEquals(expected, b1.equals(b2));
     }
 }
